@@ -2,8 +2,7 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
-import ChatApp from "./components/ChatApp";
-
+import ChatApp from "./components/UserVisite";
 
 const App = () => {
   return (

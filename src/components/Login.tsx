@@ -12,15 +12,19 @@ const Login = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/v1/user/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:5000/api/v1/users/sign-in",
+        {
+          email,
+          password,
+        }
+      );
 
-      localStorage.setItem("token", response?.data?.data?.token);
-      
-      navigate("/home");
+      console.log(response);
 
+      //   localStorage.setItem("token", response?.data?.data?.token);
+
+      //   navigate("/home");
     } catch (error) {
       alert("Login Failed");
       console.error(error);
@@ -30,8 +34,10 @@ const Login = () => {
   return (
     <div className="flex h-screen">
       {/* Left Section */}
-      <div className="hidden md:flex w-1/2 bg-cover bg-center"
-        style={{ backgroundImage: "url('https://via.placeholder.com/800')" }}>
+      <div
+        className="hidden md:flex w-1/2 bg-cover bg-center"
+        style={{ backgroundImage: "url('https://via.placeholder.com/800')" }}
+      >
         {/* Placeholder for image, replace with your actual image URL */}
         <div className="flex items-center justify-center w-full h-full bg-black bg-opacity-50">
           <h1 className="text-white text-4xl font-bold">Welcome Back!</h1>
@@ -44,7 +50,10 @@ const Login = () => {
           <h2 className="text-2xl font-bold mb-6 text-gray-800">Login</h2>
           <form onSubmit={handleLogin}>
             <div className="mb-4">
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Email Address
               </label>
               <input
@@ -58,7 +67,10 @@ const Login = () => {
               />
             </div>
             <div className="mb-6">
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Password
               </label>
               <input
@@ -79,7 +91,10 @@ const Login = () => {
             </button>
           </form>
           <p className="mt-4 text-sm text-gray-600">
-            Don’t have an account? <a href="#" className="text-indigo-500 hover:underline">Sign Up</a>
+            Don’t have an account?{" "}
+            <a href="#" className="text-indigo-500 hover:underline">
+              Sign Up
+            </a>
           </p>
         </div>
       </div>
